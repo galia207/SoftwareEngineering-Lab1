@@ -1,3 +1,4 @@
+
 public class User {
 
     private final String username;
@@ -42,21 +43,21 @@ public class User {
         boolean hasDigit = false;
         boolean hasSymbol = false;
 
+        String allowedSymbols = "!@#$%^&*()+";
+
         for (int i = 0; i < password.length(); i++) {
             char c = password.charAt(i);
 
             if ((c >= 'a' && c <= 'z') ||
                     (c >= 'A' && c <= 'Z')) {
-
                 hasLetter = true;
 
             } else if (c >= '0' && c <= '9') {
-
                 hasDigit = true;
 
-            } else if ((c >= '!' && c <= '+') ||
-                    c == '@' || c == '^') {
+            } else if (allowedSymbols.indexOf(c) >= 0) {
                 hasSymbol = true;
+
             } else {
                 throw new IllegalArgumentException(
                         "Please enter a valid password");
