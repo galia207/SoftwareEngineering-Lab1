@@ -1,3 +1,6 @@
+package org.openjfx.lab2;
+
+import org.openjfx.lab2.model.User;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,41 +13,34 @@ public class UsersApp {
     public static void main(String[] args) {
 
         ArrayList<User> users = new ArrayList<>();
-        File input = new File(args.length > 0 ? args[0] : "users.txt");
 
-        try (Scanner reader = new Scanner(input, "UTF-8")) {
+        try (Scanner reader =
+                     new Scanner(new File("users.txt"))) {
 
             while (reader.hasNextLine()) {
 
                 String line = reader.nextLine();
-
-                if (line.startsWith("\uFEFF")) {
-                    line = line.substring(1);
-                }
-
-                if (line.trim().isEmpty()) {
-                    continue;
-                }
-
                 String[] parts = line.trim().split("\\s+");
 
                 if (parts.length != 2) {
-                    System.err.println(
-                            line + " Each line must contain a username and a password");
+                    System.err.println(line +
+                            " Each line must contain a username and a password");
                     continue;
                 }
 
                 try {
-                    users.add(new User(parts[0], parts[1]));
+                    User user = new User(parts[0], parts[1]);
+                    users.add(user);
 
                 } catch (IllegalArgumentException e) {
-                    System.err.println(line + " " + e.getMessage());
+                    System.err.println(
+                            line + " " + e.getMessage());
                 }
             }
 
         } catch (FileNotFoundException e) {
             System.err.println(
-                    "Cannot find input file: " + input.getPath());
+                    "Cannot find users.txt in the project folder.");
             return;
         }
 

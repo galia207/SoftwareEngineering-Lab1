@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- Welcome screen, loaded into the same window after a successful login. -->
+<AnchorPane fx:id="welcomeScreen" prefHeight="320.0" prefWidth="380.0"
+            style="-fx-background-color: #eaf4ec;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.openjfx.lab2.controller.WelcomeController">
+    <children>
+        <VBox alignment="CENTER" spacing="10.0"
+              AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label fx:id="welcomeText" text="Welcome!" textFill="#2e7d32">
+                    <font>
+                        <Font name="System Bold" size="30.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="userText" textFill="#33475b" wrapText="true">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

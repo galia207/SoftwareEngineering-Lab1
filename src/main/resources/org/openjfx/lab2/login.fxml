@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- Login screen: username field, error label, password field and a login button.
+     The VBox is anchored to all four sides, so it stretches when the window is resized. -->
+<AnchorPane fx:id="loginScreen" prefHeight="320.0" prefWidth="380.0"
+            style="-fx-background-color: #f4f6fa;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.openjfx.lab2.controller.LoginController">
+    <children>
+        <VBox alignment="CENTER" spacing="12.0"
+              AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <padding>
+                <Insets top="24.0" right="40.0" bottom="24.0" left="40.0"/>
+            </padding>
+            <children>
+                <Label text="GCM Login" textFill="#1f3a68">
+                    <font>
+                        <Font name="System Bold" size="22.0"/>
+                    </font>
+                </Label>
+
+                <TextField fx:id="username" promptText="username (email)"
+                           prefHeight="30.0"/>
+
+                <!-- Error message, empty until a failed login -->
+                <Label fx:id="notext" textFill="#d32f2f" minHeight="18.0"
+                       wrapText="true" textAlignment="CENTER" maxWidth="300.0"/>
+
+                <PasswordField fx:id="password" promptText="password"
+                               prefHeight="30.0"/>
+
+                <Button fx:id="loginButton" text="login" defaultButton="true"
+                        onAction="#onLoginButtonClick" prefWidth="90.0"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
